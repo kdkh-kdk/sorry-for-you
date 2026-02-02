@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I'm Sorry ❤️</title>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff0f3;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .box {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #d6336c;
+    }
+
+    p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 22px;
+      font-size: 18px;
+      margin: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #forgive {
+      background-color: #ff4d79;
+      color: white;
+    }
+
+    #angry {
+      background-color: #999;
+      color: white;
+      position: absolute;
+    }
+
+    #msg {
+      display: none;
+      margin-top: 20px;
+    }
+
+    img {
+      width: 240px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>I’m really sorry ❤️</h1>
+    <p>Please forgive me… I care about you a lot 🥺</p>
+
+    <button id="forgive">Forgive Me</button>
+    <button id="angry">Still Angry</button>
+
+    <div id="msg">
+      <h2>Thank you 😭💖</h2>
+      <p>I promise I’ll do better 🌸</p>
+      <img src="https://media.giphy.com/media/VbawWIGNtKYwOFXF7U/giphy.gif" alt="Sorry Gif">
+    </div>
+  </div>
+
+  <script>
+    const angryBtn = document.getElementById("angry");
+    const forgiveBtn = document.getElementById("forgive");
+    const msg = document.getElementById("msg");
+
+    angryBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 60);
+      angryBtn.style.left = x + "px";
+      angryBtn.style.top = y + "px";
+    });
+
+    forgiveBtn.addEventListener("click", () => {
+      msg.style.display = "block";
+    });
+  </script>
+</body>
+</html>
