@@ -11,7 +11,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
       font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
     }
@@ -19,11 +19,12 @@
     .card {
       background: white;
       padding: 30px;
-      border-radius: 20px;
+      border-radius: 22px;
       text-align: center;
       max-width: 420px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
       position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -34,49 +35,24 @@
     p {
       font-size: 18px;
       color: #444;
-      line-height: 1.6;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 12px 26px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      background: #ff4d6d;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    #surprise {
-      display: none;
-      margin-top: 20px;
-    }
-
-    img {
-      width: 240px;
+    video {
+      width: 100%;
+      border-radius: 15px;
       margin-top: 15px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
 
     .rose {
       position: absolute;
       font-size: 28px;
-      animation: fall 6s linear infinite;
+      animation: fall linear infinite;
+      top: -40px;
     }
 
     @keyframes fall {
-      0% {
-        transform: translateY(-50px);
-        opacity: 1;
-      }
-      100% {
+      to {
         transform: translateY(110vh);
         opacity: 0;
       }
@@ -90,43 +66,33 @@
     <h1>Happy Rose Day 🌹❤️</h1>
 
     <p>
-      Ye rose sirf phool nahi hai baby 🥰  
-      Ye mere pyaar, care aur promises ka symbol hai 💖  
-      Tum meri zindagi ki sabse khoobsurat feeling ho 🌸
+      Ye rose meri taraf se sirf tumhare liye 💕  
+      Har pal tum meri zindagi ko khoobsurat bana dete ho 😘
     </p>
 
-    <button onclick="showSurprise()">For You Baby 💕</button>
+    <!-- VIDEO -->
+    <video controls autoplay muted loop>
+      <source src="lovee.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-    <div id="surprise">
-      <h2>I Love You 😘</h2>
-      <p>
-        Har din tumhare saath Rose Day jaisa ho 🌹  
-        Forever & Always 🤞💞
-      </p>
-
-      <!-- CHANGE IMAGE HERE -->
-      <img src="rose.jpg" alt="Rose Day Love">
-    </div>
+    <p style="margin-top:15px;">
+      I love you forever ❤️🌹
+    </p>
   </div>
 
   <script>
-    function showSurprise() {
-      document.getElementById("surprise").style.display = "block";
-    }
-
     // Falling roses
     setInterval(() => {
       const rose = document.createElement("div");
-      rose.classList.add("rose");
+      rose.className = "rose";
       rose.innerText = "🌹";
       rose.style.left = Math.random() * window.innerWidth + "px";
-      rose.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      rose.style.animationDuration = (Math.random() * 3 + 4) + "s";
       document.body.appendChild(rose);
 
-      setTimeout(() => {
-        rose.remove();
-      }, 6000);
-    }, 500);
+      setTimeout(() => rose.remove(), 7000);
+    }, 400);
   </script>
 
 </body>
