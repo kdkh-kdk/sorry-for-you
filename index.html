@@ -2,27 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>I’m Really Sorry ❤️</title>
+  <title>Happy Rose Day ❤️</title>
 
   <style>
     body {
-      height: 100vh;
       margin: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ffd6e0, #fff0f3);
-      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
     }
 
-    .box {
-      text-align: center;
+    .card {
       background: white;
       padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      border-radius: 20px;
+      text-align: center;
       max-width: 420px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
       position: relative;
     }
 
@@ -33,89 +33,101 @@
 
     p {
       font-size: 18px;
-      color: #333;
-      margin-bottom: 20px;
-      line-height: 1.5;
+      color: #444;
+      line-height: 1.6;
     }
 
     button {
-      padding: 10px 22px;
+      margin-top: 20px;
+      padding: 12px 26px;
       font-size: 18px;
-      margin: 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
+      background: #ff4d6d;
+      color: white;
       cursor: pointer;
+      transition: transform 0.2s;
     }
 
-    #forgive {
-      background-color: #ff4d79;
-      color: white;
+    button:hover {
+      transform: scale(1.05);
     }
 
-    #angry {
-      background-color: #999;
-      color: white;
-      position: absolute;
-      left: 20px;
-      bottom: 20px;
-    }
-
-    #msg {
+    #surprise {
       display: none;
       margin-top: 20px;
     }
 
     img {
-      width: 260px;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #ff4d79;
+      width: 240px;
       margin-top: 15px;
+      border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .rose {
+      position: absolute;
+      font-size: 28px;
+      animation: fall 6s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="box">
-    <h1>I’m really sorry ❤️ 
-      This boy deserve a another chance please forgive me..🥺💗</h1>
+
+  <div class="card">
+    <h1>Happy Rose Day 🌹❤️</h1>
 
     <p>
-     
+      Ye rose sirf phool nahi hai baby 🥰  
+      Ye mere pyaar, care aur promises ka symbol hai 💖  
+      Tum meri zindagi ki sabse khoobsurat feeling ho 🌸
     </p>
 
-    <button id="forgive">Forgive Me ❤️</button>
-    <button id="angry">Still Angry 😤</button>
+    <button onclick="showSurprise()">For You Baby 💕</button>
 
-    <div id="msg">
-      <h2>Thank you 😭💖</h2>
+    <div id="surprise">
+      <h2>I Love You 😘</h2>
       <p>
-     I messed up. Can we rewind and please be as we were like first Spoo.. Everything will be fine between us
-        let's give our relationship a time & time heals everything Spoo💗🙏
+        Har din tumhare saath Rose Day jaisa ho 🌹  
+        Forever & Always 🤞💞
       </p>
 
-      <!-- YOUR PHOTO -->
-      <img src="211.jpeg" alt="Us Moment ❤️">
+      <!-- CHANGE IMAGE HERE -->
+      <img src="rose.jpg" alt="Rose Day Love">
     </div>
   </div>
 
   <script>
-    const angryBtn = document.getElementById("angry");
-    const forgiveBtn = document.getElementById("forgive");
-    const msg = document.getElementById("msg");
+    function showSurprise() {
+      document.getElementById("surprise").style.display = "block";
+    }
 
-    angryBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - 120);
-      const y = Math.random() * (window.innerHeight - 60);
-      angryBtn.style.left = x + "px";
-      angryBtn.style.top = y + "px";
-    });
+    // Falling roses
+    setInterval(() => {
+      const rose = document.createElement("div");
+      rose.classList.add("rose");
+      rose.innerText = "🌹";
+      rose.style.left = Math.random() * window.innerWidth + "px";
+      rose.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(rose);
 
-    forgiveBtn.addEventListener("click", () => {
-      msg.style.display = "block";
-    });
+      setTimeout(() => {
+        rose.remove();
+      }, 6000);
+    }, 500);
   </script>
+
 </body>
 </html>
